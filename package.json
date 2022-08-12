@@ -7,5 +7,19 @@
   },
   "scripts": {
     "start": "nodemon server/server.js"
-  }
+  },
+  "name": "clase-8",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felipepuiggarimedici/BackEnd.git"
+  },
+  "author": "Felipe Puiggari Medici",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Felipepuiggarimedici/BackEnd/issues"
+  },
+  "homepage": "https://github.com/Felipepuiggarimedici/BackEnd#readme",
+  "description": ""
 }

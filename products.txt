@@ -1,1 +1,0 @@
-[{"id":0,"name":"Escuadra","price":700},{"id":1,"name":"Lapices","price":500},{"id":2,"title":"Lapiceras","price":400}]
