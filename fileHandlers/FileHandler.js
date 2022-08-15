@@ -86,10 +86,10 @@ class FileHandler {
       const lastItem = fileContent[fileContent.length - 1];
       if (isNaN(newProduct.id) || typeof newProduct.price !== "number" || !newProduct.title) {
         return "ID price and name should be of type integer and should be specified";
-      } else if (fileContent.some(productInFile => productInFile.title === newProduct.title)) {
-        //'The product is already in the file';
-        fileContent = fileContent.filter(productInFile => productInFile.title !== newProduct.title);
-      } if (fileContent.some(productInFile => productInFile.id === newProduct.id)) {
+      }
+      //'If the product is already in the file, it is deleted from the file
+      fileContent = fileContent.filter(productInFile => productInFile.title !== newProduct.title);
+      if (fileContent.some(productInFile => productInFile.id === newProduct.id)) {
         //id has to be replaced
         const indexForReplacement = fileContent.findIndex(product => product.id === newProduct.id);
         fileContent[indexForReplacement] = {id: newProduct.id, title: newProduct.title, price: newProduct.price};
