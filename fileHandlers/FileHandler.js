@@ -88,15 +88,16 @@ class FileHandler {
         return "ID price and name should be of type integer and should be specified";
       } else if (fileContent.some(productInFile => productInFile.title === newProduct.title)) {
         //'The product is already in the file';
-        return null;
-      } else if (newProduct.id > lastItem.id) {
-        return this.save(newProduct);
-      } else {
+        fileContent = fileContent.filter(productInFile => productInFile.title !== newProduct.title);
+      } if (fileContent.some(productInFile => productInFile.id === newProduct.id)) {
+        //id has to be replaced
         const indexForReplacement = fileContent.findIndex(product => product.id === newProduct.id);
         fileContent[indexForReplacement] = {id: newProduct.id, title: newProduct.title, price: newProduct.price};
+      } else {
+        fileContent.push({id: newProduct.id, title: newProduct.title, price: newProduct.price})
+      }
         await fs.promises.writeFile(this.fileName, JSON.stringify(fileContent));
         return (newProduct.id);
-      }
     } catch (error) {
       console.log(error);
       return "File couldn't be updated";

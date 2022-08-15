@@ -1,1 +1,1 @@
-[{"id":0,"name":"Escuadra","price":700},{"id":1,"title":"Hojas","price":300},{"id":2,"title":"Lapiceras","price":400}]
+[{"id":0,"name":"Escuadra","price":700},{"id":2,"title":"Lapiceras","price":400},{"id":3,"title":"Hojas Rayadas","price":600},{"id":4,"title":"Biromes","price":300}]
