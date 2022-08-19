@@ -94,7 +94,7 @@ class FileHandler {
         const indexForReplacement = fileContent.findIndex(product => product.id === newProduct.id);
         fileContent[indexForReplacement] = {id: newProduct.id, title: newProduct.title, price: newProduct.price};
       } else {
-        fileContent.push({id: newProduct.id, title: newProduct.title, price: newProduct.price})
+        fileContent.push({id: newProduct.id, title: newProduct.title, price: newProduct.price, image: image})
       }
         await fs.promises.writeFile(this.fileName, JSON.stringify(fileContent));
         return (newProduct.id);

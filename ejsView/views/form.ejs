@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<%- include("partials/header") %>
+<form action="/api/products" method="POST">
+  <div class="form-group">
+    <label for="titleOfProduct">Title of product</label>
+    <input name="title" type="text" class="form-control" id="titleOfProduct" aria-describedby="emailHelp" placeholder="Enter title of product">
+  </div>
+  <div class="form-group">
+    <label for="imageOfProduct">Enter image url</label>
+    <input name="image" type="text" class="form-control" id="imageOfProduct" aria-describedby="emailHelp" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Price of product</label>
+    <input name="price" type="number" class="form-control" id="exampleInputPassword1" placeholder="$700">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<a href="/api/products">Go to Store</a>
+</html>

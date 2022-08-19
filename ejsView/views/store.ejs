@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<%- include("partials/header") %>
+<h1>Store</h1>
+<% if (noProducts) { %>
+    <%- include("partials/noProduct") %>
+<% }; %>
+<% products.forEach(function(product) { %>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= product.image %>" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><%= product.title%></h5>
+            <p class="card-text"><%= product.price%></p>
+        </div>
+    </div>
+<% }); %> 
+<a href="/api/addProduct">Go to Add Product</a>
+</html>

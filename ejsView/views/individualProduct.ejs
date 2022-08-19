@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<%- include("partials/header") %>
+<% if exists { %>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.price}}</p>
+        </div>
+    </div>  
+<% } else{ %> 
+    <%- include("partials/noProduct") %>
+<% } %>
+</html>

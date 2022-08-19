@@ -2,25 +2,23 @@ const express = require("express");
 const { Router } = express;
 const routerIndividualProduct = Router();
 
-const FileHandler = require("./../../fileHandlers/FileHandler.js");
+const FileHandler = require("../../../fileHandlers/FileHandler.js");
 
 const fileHandler = new FileHandler("./fileHandlers/products.txt");
 
-routerIndividualProduct.get("/:id", async(req, res) => {
+routerIndividualProduct.get("/:id", async(req, res, next) => {
     const id = parseInt(req.params.id);
     const product = await fileHandler.getById(id);
-    if (product === null) {
-        const error = new Error("Product does not exist");
-        error.httpStatusCode = 404;
-        return res.status(404).send(`Error ${error.httpStatusCode}: ${error.message}`);
+    if (product !== null) {
+        res.locals.exist = true;
     }
-    return res.send(product);
+    res.locals.product = product;
+    next();
 })
-routerIndividualProduct.put("/:id", async(req, res) => {
+routerIndividualProduct.put("/addProduct/:id", async(req, res) => {
     try {
         const product = {id: parseInt(req.params.id), ...req.body};
         const changeProductResponse = await fileHandler.changeProduct(product);
-        console.log(changeProductResponse)
         if (changeProductResponse === "ID, price and name should be of type integer and should be specified") {
             const error = new Error(changeProductResponse);
             error.httpStatusCode = 400;
