@@ -85,7 +85,7 @@ class FileHandler {
       let fileContent = await this.getAll();
       const lastItem = fileContent[fileContent.length - 1];
       if (isNaN(newProduct.id) || typeof newProduct.price !== "number" || !newProduct.title) {
-        return "ID price and name should be of type integer and should be specified";
+        return "ID, price and name should be of type integer and should be specified";
       }
       //'If the product is already in the file, it is deleted from the file
       fileContent = fileContent.filter(productInFile => productInFile.title !== newProduct.title);
